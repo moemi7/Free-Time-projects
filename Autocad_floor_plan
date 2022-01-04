@@ -1,0 +1,34 @@
+
+from ntpath import join
+from pyautocad import Autocad, APoint
+
+acad = Autocad(create_if_not_exists=True)
+acad.prompt("Hello, Autocad from Python\n")
+print(acad.doc.Name)
+
+
+#main
+r_1 = APoint(0,0)
+r_2 = APoint(300,0)
+r_3 = APoint(300,500)
+r_4 = APoint(0,500)
+
+#gang, pl = placeholder
+#gang altijd zelfde dimensies is fout
+pl1= r_3[0]/2 -10
+pl2 = pl1 + 20
+r_5 = APoint(pl1,0)
+r_6 = APoint(pl1,r_3[1])
+r_7 = APoint(pl2, 0)
+r_8 = APoint(pl2, r_3[1])
+
+
+#main
+acad.model.AddLine(r_1, r_2)
+acad.model.AddLine(r_2, r_3)
+acad.model.AddLine(r_3, r_4)
+acad.model.AddLine(r_4, r_1)
+#gang
+acad.model.AddLine(r_5, r_6)
+acad.model.AddLine(r_7, r_8)
+#
