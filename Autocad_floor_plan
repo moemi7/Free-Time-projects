@@ -9,9 +9,9 @@ print(acad.doc.Name)
 
 #main
 r_1 = APoint(0,0)
-r_2 = APoint(300,0)
-r_3 = APoint(300,500)
-r_4 = APoint(0,500)
+r_2 = APoint(600,0)
+r_3 = APoint(600,800)
+r_4 = APoint(0,800)
 
 #gang, pl = placeholder
 #gang altijd zelfde dimensies is fout
@@ -21,8 +21,10 @@ r_5 = APoint(pl1,0)
 r_6 = APoint(pl1,r_3[1])
 r_7 = APoint(pl2, 0)
 r_8 = APoint(pl2, r_3[1])
-
-
+#kamers
+ra = int(r_4[1]/100)
+ta = 100
+tb = 100
 #main
 acad.model.AddLine(r_1, r_2)
 acad.model.AddLine(r_2, r_3)
@@ -31,4 +33,18 @@ acad.model.AddLine(r_4, r_1)
 #gang
 acad.model.AddLine(r_5, r_6)
 acad.model.AddLine(r_7, r_8)
-#
+#kamers
+
+#links
+for i in range(ra):
+    r_9 = APoint(0,r_4[1]-ta)
+    r_10 = APoint(pl1,r_4[1]-ta)
+    acad.model.AddLine(r_9, r_10)
+    ta += 100
+
+#rechts, 2 extra lijnen onder
+for i in range(ra):
+    r_11 = APoint(pl2,r_4[1]-tb)
+    r_12 = APoint(r_3[0],r_4[1]-tb)
+    acad.model.AddLine(r_11, r_12)
+    tb += 100
