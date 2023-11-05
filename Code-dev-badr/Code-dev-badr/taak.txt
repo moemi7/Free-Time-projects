@@ -1,0 +1,3 @@
+Deze applicatie uitpuzzelen 
+Waar zijn het aantal columns relevant
+generaliseren en toegankelijk maken voor meerdere soort CSV bestanden dus met minder columns
